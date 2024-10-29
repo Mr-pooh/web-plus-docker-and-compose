@@ -1,0 +1,55 @@
+
+services:
+  backend:
+    container_name: 'backend-end-work'
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: backend-compose-end-work
+    restart: always
+    ports:
+      - "4000:3000"
+    env_file: .env
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  frontend:
+    container_name: 'frontend-end-work'
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: frontend-compose-end-work
+    restart: always
+    ports:
+      - "8081:80"
+    networks:
+      - frontend
+
+  db:
+    container_name: 'postgres'
+    image: postgres:alpine
+    env_file: .env
+    restart: always
+    volumes:
+      - pg_data:/data/postgres
+    networks:
+      - backend
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    networks:
+      - backend
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+volumes:
+  pg_data:
+
+networks:
+  backend:
+  frontend:
