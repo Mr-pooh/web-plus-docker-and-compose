@@ -2,10 +2,8 @@
 https://docs.nestjs.com/modules
 */
 
-import { forwardRef, Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { HashModule } from '../utils/hash/hash.module';
 import { UsersModule } from '../users/users.module';

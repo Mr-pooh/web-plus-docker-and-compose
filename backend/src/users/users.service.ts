@@ -7,13 +7,7 @@ import {
     NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import {
-    FindOneOptions,
-    FindOptionsWhere,
-    Like,
-    Not,
-    Repository,
-} from 'typeorm';
+import { FindOneOptions, Like, Not, Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { FindUserDto } from './dto/find-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';

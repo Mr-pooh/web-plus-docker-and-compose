@@ -2,11 +2,7 @@
 https://docs.nestjs.com/providers#services
 */
 
-import {
-    BadRequestException,
-    Injectable,
-    UnauthorizedException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { HashService } from '../utils/hash/hash.service';
 import { UsersService } from '../users/users.service';

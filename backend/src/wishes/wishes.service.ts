@@ -117,16 +117,9 @@ export class WishesService {
         await queryRunner.startTransaction();
 
         try {
-            const {
-                id,
-                createdAt,
-                updatedAt,
-                copied,
-                owner,
-                offers,
-                raised,
-                ...wish
-            } = await this.wishRepository.findOneBy({ id: wishId });
+            const { copied, ...wish } = await this.wishRepository.findOneBy({
+                id: wishId,
+            });
             await this.wishRepository.update(wishId, { copied: copied + 1 });
 
             const wishCopy = await this.create(wish, user);
